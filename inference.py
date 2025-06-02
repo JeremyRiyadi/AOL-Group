@@ -4,7 +4,10 @@ import pandas as pd
 from sklearn.metrics.pairwise import linear_kernel
 
 st.set_page_config(page_title="Netflix Recommendation System", layout="centered")
-st.title('🎬 Netflix Recommendation System')
+st.markdown(
+    "<h1 style='white-space: nowrap; margin-right: 20px;'>🎬 Netflix Recommendation System</h1>",
+    unsafe_allow_html=True
+)
 
 @st.cache_data
 def load_data():
@@ -56,7 +59,7 @@ if selected_title:
                     padding: 24px;
                     border-radius: 16px;
                     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-                    max-width: 800px;
+                    max-width: 600px;
                     margin: auto;
                     font-family: 'Segoe UI', sans-serif;
                     color: #1f2937;
@@ -66,7 +69,6 @@ if selected_title:
                         🎬 Recommendation for You : <span style="color:#4f46e5">{row['title']}</span>
                     </h2>
                     <ul style="list-style: none; padding: 0; font-size: 14px;">
-                        <li><strong>Similarity :</strong> {row['Score']:.2f}</li>
                         <li><strong>Director :</strong>  {row['director']}</li>
                         <li><strong>Cast :</strong> {row['cast']}</li>
                         <li><strong>Country :</strong> {row['country']}</li>
